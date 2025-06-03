@@ -3,6 +3,11 @@ package br.com.fiap.queimadas.controller;
 import br.com.fiap.queimadas.domain.entity.PontoFoco;
 import br.com.fiap.queimadas.domain.enums.StatusPontoFoco;
 import br.com.fiap.queimadas.service.PontoFocoService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +19,7 @@ import java.util.Optional;
 /**
  * Controlador REST para gerenciar pontos de foco de incêndio
  */
+@Tag(name = "Pontos de Foco", description = "Operações relacionadas a pontos de foco de incêndio")
 @RestController
 @RequestMapping("/api/pontos-foco")
 public class PontoFocoController {
@@ -70,11 +76,20 @@ public class PontoFocoController {
     /**
      * Registra um novo ponto de foco
      */
+    @Operation(
+        summary = "Registra um novo ponto de foco", 
+        description = "Cria um novo registro de ponto de foco com coordenadas geográficas e, opcionalmente, associa a uma região"
+    )
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "201", description = "Ponto de foco criado com sucesso"),
+        @ApiResponse(responseCode = "400", description = "Dados inválidos"),
+        @ApiResponse(responseCode = "404", description = "Região não encontrada")
+    })
     @PostMapping
     public ResponseEntity<PontoFoco> registrarPontoFoco(
-            @RequestParam Double latitude,
-            @RequestParam Double longitude,
-            @RequestParam(required = false) Long regiaoId) {
+            @Parameter(description = "Latitude da localização") @RequestParam Double latitude,
+            @Parameter(description = "Longitude da localização") @RequestParam Double longitude,
+            @Parameter(description = "ID da região (opcional)") @RequestParam(required = false) Long regiaoId) {
         
         PontoFoco pontoFoco = pontoFocoService.registrarPontoFoco(latitude, longitude, regiaoId);
         return ResponseEntity.status(HttpStatus.CREATED).body(pontoFoco);

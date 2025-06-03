@@ -3,6 +3,11 @@ package br.com.fiap.queimadas.controller;
 import br.com.fiap.queimadas.domain.entity.AcaoCombate;
 import br.com.fiap.queimadas.domain.enums.StatusPontoFoco;
 import br.com.fiap.queimadas.service.AcaoCombateService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tagsw.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -16,6 +21,7 @@ import java.util.Optional;
 /**
  * Controlador REST para gerenciar ações de combate a incêndios
  */
+@Tag(name = "Ações de Combate", description = "Operações relacionadas às ações de combate a incêndios")
 @RestController
 @RequestMapping("/api/acoes-combate")
 public class AcaoCombateController {

@@ -2,6 +2,11 @@ package br.com.fiap.queimadas.controller;
 
 import br.com.fiap.queimadas.domain.entity.Regiao;
 import br.com.fiap.queimadas.service.RegiaoService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +19,7 @@ import java.util.Optional;
 /**
  * Controlador REST para gerenciar regiões monitoradas
  */
+@Tag(name = "Regiões", description = "Operações relacionadas a regiões monitoradas")
 @RestController
 @RequestMapping("/api/regioes")
 public class RegiaoController {
