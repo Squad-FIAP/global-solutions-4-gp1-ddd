@@ -1,8 +1,8 @@
 # API de Monitoramento e Combate a Queimadas
 
 ## Integrantes
-Gabriel Mediotti Marques - RM 552632
-Jó Sales - RM 552679
+- Gabriel Mediotti Marques - RM 552632
+- Jó Sales - RM 552679
 
 ## Descrição
 Sistema de monitoramento e combate a focos de incêndio utilizando arquitetura Domain-Driven Design (DDD). O projeto implementa uma API REST que permite o gerenciamento de regiões monitoradas, pontos de foco de incêndio e ações de combate.
