@@ -1,5 +1,9 @@
 # API de Monitoramento e Combate a Queimadas
 
+## Integrantes
+Gabriel Mediotti Marques - RM 552632
+Jó Sales - RM 552679
+
 ## Descrição
 Sistema de monitoramento e combate a focos de incêndio utilizando arquitetura Domain-Driven Design (DDD). O projeto implementa uma API REST que permite o gerenciamento de regiões monitoradas, pontos de foco de incêndio e ações de combate.
 
@@ -135,9 +139,3 @@ curl -X POST "http://localhost:8080/api/acoes-combate/terrestre/1?descricao=Brig
 
 ## Dados de Teste
 A aplicação possui um inicializador de dados que cria exemplos de regiões e pontos de foco durante a inicialização (apenas em ambientes de desenvolvimento e teste).
-
-## Contribuição
-Para contribuir com este projeto, por favor envie um pull request ou abra uma issue para discussão.
-
-## Licença
-[Incluir informações de licença aqui]
